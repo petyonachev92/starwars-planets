@@ -1,4 +1,4 @@
-import {getSWPlanets, getSWPlanetsCount} from './app/app.js';
+import {getSWPlanets, getSWPlanetsCount} from './app/utils.js';
 import Application from './app/Application';
 
 document.addEventListener('DOMContentLoaded', () => {
