@@ -10,11 +10,14 @@ const EVENTS = {
  * All configurations are described in src/config.js
  */
 export default class Application extends EventEmitter {
-  constructor() {
+  constructor(count, planets) {
     super();
 
     this.config = config;
-    this.data = {};
+    this.data = {
+      count,
+      planets
+    };
 
     this.init();
   }

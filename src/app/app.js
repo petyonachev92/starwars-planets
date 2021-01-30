@@ -1,20 +1,13 @@
-/**
- * Here you can define helper functions to use across your app.
- */
-
 import Application from './Application.js'
-
 
 async function getSWPlanets() {
     try{
-        let count = 0;
-        let planets = [];
+        let Application = new Application();
         const apiPlanets = await fetch('https://swapi.dev/api/planets/');
         const planetsJson = await apiPlanets.json()
         count = planetsJson.count
         planets = planetsJson.results
-        const starwarsPlanets = new Application(count, planets);
-        
+
         console.log(count)
         console.log(planets)
     }
@@ -23,4 +16,4 @@ async function getSWPlanets() {
     }
 }
 
-getSWPlanets()
+export default getSWPlanets;
