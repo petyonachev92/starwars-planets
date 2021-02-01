@@ -1,5 +1,6 @@
 import config from '../config';
 import EventEmitter from 'eventemitter3';
+import { getSWPlanets, getSWPlanetsCount } from './utils';
 
 const EVENTS = {
   APP_READY: 'app_ready',
@@ -10,13 +11,13 @@ const EVENTS = {
  * All configurations are described in src/config.js
  */
 export default class Application extends EventEmitter {
-  constructor(count, planets) {
+  constructor() {
     super();
 
     this.config = config;
     this.data = {
-      count,
-      planets
+      count: getSWPlanetsCount(),
+      planets: getSWPlanets()
     };
 
     this.init();
