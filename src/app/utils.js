@@ -5,10 +5,9 @@
 async function getSWPlanetsCount() {
     try{
 
-        const apiPlanetsCount = await fetch('https://swapi.booost.bg/api/planets/')
-        const planetsCount = await apiPlanetsCount.json();
-        const count = await planetsCount.count
-        console.log(count);
+        const response = await fetch('https://swapi.booost.bg/api/planets/')
+        const data = await response.json();
+        const count = data.count
     
         return count;
     }
@@ -19,9 +18,9 @@ async function getSWPlanetsCount() {
 
 async function getSWPlanets() {
     try{
-        const apiPlanets = await fetch('https://swapi.booost.bg/api/planets/');
-        const planetsJson = await apiPlanets.json()
-        let planets = planetsJson.results
+        const response = await fetch('https://swapi.booost.bg/api/planets/')
+        const data = await response.json();
+        let planets = data.results
         
         return planets
     }

@@ -16,8 +16,6 @@ export default class Application extends EventEmitter {
 
     this.config = config;
     this.data = {
-      count: getSWPlanetsCount(),
-      planets: getSWPlanets()
     };
 
     this.init();
@@ -35,8 +33,13 @@ export default class Application extends EventEmitter {
    */
   async init() {
     // Initiate classes and wait for async operations here.
+    this.data.count = await getSWPlanetsCount()
+    this.data.planets = await getSWPlanets()
+    
+    console.log(this.data)
 
     this.emit(Application.events.APP_READY);
+
   }
 }
 
