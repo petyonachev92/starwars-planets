@@ -2,16 +2,19 @@
  * Here you can define helper functions to use across your app.
  */
 
-function getSWPlanetsCount() {
-    
-    const planetsCount = fetch('https://swapi.booost.bg/api/planets/').then(r => r.json())
-    .then(response => {
-        return response.count
-    });
-    
-    console.log(planetsCount);
+async function getSWPlanetsCount() {
+    try{
 
-    return planetsCount;
+        const apiPlanetsCount = await fetch('https://swapi.booost.bg/api/planets/')
+        const planetsCount = await apiPlanetsCount.json();
+        const count = await planetsCount.count
+        console.log(count);
+    
+        return count;
+    }
+    catch (err) {
+        console.error(err)
+    }
 }
 
 async function getSWPlanets() {
